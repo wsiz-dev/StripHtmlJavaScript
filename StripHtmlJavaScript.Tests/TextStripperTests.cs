@@ -25,7 +25,7 @@ namespace StripHtmlJavaScript.Tests
             const string text = "To jest mój tekst, który nie zawiera kodu html ani JavaScript";
             var stripper = new HtmlJavaScriptStripper();
             
-            var strippedText = stripper.StripText(text);
+            var strippedText = stripper.ProcessText(text);
         
             strippedText.Should().BeEquivalentTo("To jest mój tekst, który nie zawiera kodu html ani JavaScript");
         }
@@ -37,7 +37,7 @@ namespace StripHtmlJavaScript.Tests
         {
             var stripper = new HtmlJavaScriptStripper();
             
-            Action action = () => stripper.StripText(text);
+            Action action = () => stripper.ProcessText(text);
             
             action.Should().Throw<ArgumentNullException>();
         }

@@ -2,9 +2,11 @@ namespace StripHtmlJavaScript.App
 {
     public class HtmlJavaScriptStripper
     {
-        public string StripText(string text)
+        public string ProcessText(string text)
         {
             return text;
         }
+        
+        
     }
 }
