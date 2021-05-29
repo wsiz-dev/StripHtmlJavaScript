@@ -20,7 +20,11 @@ namespace StripHtmlJavaScript.Tests
         [Fact]
         public void StripHtmlAndJavaScript_WhenTextContainsJavaScript_ShouldRemoveJavaScriptCode()
         {
+            const string text = "To jest mój tekst,<script>setTimeout(2000);</script> który zawiera kod JavaScript";
+            
+            var strippedText = HtmlJavaScriptStripper.ProcessText(text);
         
+            strippedText.Should().BeEquivalentTo("To jest mój tekst, który zawiera kod JavaScript");
         }
         
         [Fact]
