@@ -5,7 +5,7 @@ namespace StripHtmlJavaScript.App
 {
     public class HtmlJavaScriptStripper
     {
-        public string ProcessText(string text)
+        public static string ProcessText(string text)
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -15,7 +15,7 @@ namespace StripHtmlJavaScript.App
             return RemoveHtml(text);
         }
         
-        private string RemoveHtml(string text)
+        private static string RemoveHtml(string text)
         {
             return Regex.Replace(text, "<.*?>", "");
         }
