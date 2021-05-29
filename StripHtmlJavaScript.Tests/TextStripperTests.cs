@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using StripHtmlJavaScript.App;
 using Xunit;
@@ -29,10 +30,16 @@ namespace StripHtmlJavaScript.Tests
             strippedText.Should().BeEquivalentTo("To jest mój tekst, który nie zawiera kodu html ani JavaScript");
         }
         
-        [Fact]
-        public void StripHtmlAndJavaScript_WhenTextIsNullOrEmpty_ShouldThrowArgumentNullException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void StripHtmlAndJavaScript_WhenTextIsNullOrEmpty_ShouldThrowArgumentNullException(string text)
         {
-        
+            var stripper = new HtmlJavaScriptStripper();
+            
+            Action action = () => stripper.StripText(text);
+            
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }
