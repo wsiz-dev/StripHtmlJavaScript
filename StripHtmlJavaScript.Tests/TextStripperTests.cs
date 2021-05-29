@@ -1,3 +1,5 @@
+using FluentAssertions;
+using StripHtmlJavaScript.App;
 using Xunit;
 
 namespace StripHtmlJavaScript.Tests
@@ -19,7 +21,12 @@ namespace StripHtmlJavaScript.Tests
         [Fact]
         public void StripHtmlAndJavaScript_WhenTextDoesntContainsHtmlNorJavaScript_ShouldNotChangeText()
         {
+            const string text = "To jest mój tekst, który nie zawiera kodu html ani JavaScript";
+            var stripper = new HtmlJavaScriptStripper();
+            
+            var strippedText = stripper.StripText(text);
         
+            strippedText.Should().BeEquivalentTo("To jest mój tekst, który nie zawiera kodu html ani JavaScript");
         }
         
         [Fact]
