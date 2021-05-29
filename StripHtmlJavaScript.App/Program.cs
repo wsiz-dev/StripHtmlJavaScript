@@ -2,11 +2,20 @@
 
 namespace StripHtmlJavaScript.App
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if (!(args is {Length: 1}))
+            {
+                return;
+            }
+            
+            var text = args[0];
+
+            Console.WriteLine("Original text: {0}", text);
+            
+            //Console.WriteLine("Stripped text: {0}", strippedText);
         }
     }
 }
