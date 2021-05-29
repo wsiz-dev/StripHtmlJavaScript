@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 
 namespace StripHtmlJavaScript.App
 {
@@ -11,7 +12,12 @@ namespace StripHtmlJavaScript.App
                 throw new ArgumentNullException();
             }
 
-            return text;
+            return RemoveHtml(text);
+        }
+        
+        private string RemoveHtml(string text)
+        {
+            return Regex.Replace(text, "<.*?>", "");
         }
     }
 }

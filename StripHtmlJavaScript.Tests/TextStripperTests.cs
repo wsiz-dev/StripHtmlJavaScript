@@ -10,7 +10,7 @@ namespace StripHtmlJavaScript.Tests
         [Fact]
         public void StripHtmlAndJavaScript_WhenTextContainsHtml_ShouldRemoveHtmlCode()
         {
-            const string text = "To jest mój tekst, <br/> który zawiera kod html";
+            const string text = "To jest mój tekst,<br/> który zawiera kod html";
             var stripper = new HtmlJavaScriptStripper();
             
             var strippedText = stripper.ProcessText(text);
